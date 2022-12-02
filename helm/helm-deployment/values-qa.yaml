@@ -1,5 +1,5 @@
 app:
-  namespace: school-governance
+  namespace: dev
   name: helm-demo
   labels:
     app: helm-demo
