@@ -1,4 +1,0 @@
----
-namespace: qa
-resources:
-- ../../base
