@@ -1,0 +1,9 @@
+app:
+  namespace: school-governance
+  name: helm-demo
+  labels:
+    app: helm-demo
+    tier: frontend
+  hpa: 
+    min_pods: 1
+    max_pods: 3

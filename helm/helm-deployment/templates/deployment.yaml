@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name}}
+  namespace: school-governance
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {{ toYaml .Values.app.labels | nindent 6}}
+  template:
+    metadata:
+      labels: {{ toYaml .Values.app.labels | nindent 8}}
+    spec:
+      containers:
+      - image: nginx:1.14.2
+        name: {{ .Values.app.name}}
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 150m
+            memory: 300Mi
+          requests:
+            cpu: 75m
+            memory: 150Mi
