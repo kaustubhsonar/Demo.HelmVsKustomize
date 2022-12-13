@@ -32,3 +32,15 @@ Helm is widely known as <b>"the package manager for Kubernetes".</b> Helm is an 
 | Configuration | Manage multiple configurations with one base file | Manage multiple configurations with one base file |
 | Ease of Use | Easy learning curve | More difficult compared to the other two |
 
+## Command reference
+### Kustomize commands
+
+- kustomize build kustomize/overlays/dev > deploy-kustomize.yaml 
+- kubectl apply -k kustomize/overlays/dev 
+
+### Helm commands
+- helm create helm-deployment
+- helm template demo-helm -f helm/helm-deployment/values-dev.yaml ./helm/helm-deployment/ > deploy-helm.yaml 
+- helm upgrade --install demo-helm -f helm/helm-deployment/values-dev.yaml -n dev ./helm/helm-deployment/
+- helm list
+- helm history demo-helm 
