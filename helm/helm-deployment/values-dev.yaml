@@ -5,5 +5,5 @@ app:
     app: helm-demo
     tier: frontend
   hpa: 
-    min_pods: 1
+    min_pods: 2
     max_pods: 3

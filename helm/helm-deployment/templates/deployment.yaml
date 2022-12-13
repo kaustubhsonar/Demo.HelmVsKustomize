@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.app.name}}
-  namespace: dev
+  namespace: {{ .Values.app.namespace}}
 spec:
   replicas: 1
   selector:
@@ -12,7 +12,8 @@ spec:
       labels: {{ toYaml .Values.app.labels | nindent 8}}
     spec:
       containers:
-      - image: nginx:1.14.2
+      - image: nginx
+        imagePullPolicy: Always
         name: {{ .Values.app.name}}
         ports:
         - containerPort: 80

@@ -1,9 +1,9 @@
 app:
-  namespace: dev
+  namespace: qa
   name: helm-demo
   labels:
     app: helm-demo
     tier: frontend
   hpa: 
-    min_pods: 2
-    max_pods: 3
+    min_pods: 3
+    max_pods: 4
