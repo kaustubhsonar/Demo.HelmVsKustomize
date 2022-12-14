@@ -3,5 +3,7 @@ kind: Kustomization
 namespace: qa
 bases:
   - ../../base
+  #- flagr-deploy.yaml
 patchesStrategicMerge:
   - hpa-patch.yaml
+  
