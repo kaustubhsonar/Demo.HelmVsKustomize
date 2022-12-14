@@ -24,3 +24,37 @@ spec:
           requests:
             cpu: 75m
             memory: 150Mi
+
+---
+{{- if eq .Values.app.namespace "qa" }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm-demo-flagr
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helm-demo-flagr
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: helm-demo-flagr
+        tier: frontend
+    spec:
+      containers:
+      - image: nginx
+        name: helm-demo-flagr
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 150m
+            memory: 300Mi
+          requests:
+            cpu: 75m
+            memory: 150Mi
+{{- end }}
